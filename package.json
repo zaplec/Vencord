@@ -7,6 +7,7 @@
 		"esbuild": "^0.15.5"
 	},
 	"dependencies": {
+		"@swc/wasm-web": "^1.3.4",
 		"discord-types": "^1.3.26",
 		"electron-devtools-installer": "^3.2.0",
 		"jsposed": "^1.0.2",

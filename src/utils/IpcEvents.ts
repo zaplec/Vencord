@@ -24,5 +24,6 @@ export default strEnum({
     GET_HASHES: "VencordGetHashes",
     UPDATE: "VencordUpdate",
     BUILD: "VencordBuild",
-    GET_DESKTOP_CAPTURE_SOURCES: "VencordGetDesktopCaptureSources"
+    GET_DESKTOP_CAPTURE_SOURCES: "VencordGetDesktopCaptureSources",
+    GET_SWC_WASM: "VencordGetSwcWasm"
 } as const);

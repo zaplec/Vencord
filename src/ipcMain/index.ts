@@ -32,12 +32,12 @@ ipcMain.handle(IpcEvents.GET_DESKTOP_CAPTURE_SOURCES, (_, opts) => desktopCaptur
 ipcMain.handle(IpcEvents.OPEN_PATH, (_, ...pathElements) => shell.openPath(join(...pathElements)));
 ipcMain.handle(IpcEvents.OPEN_EXTERNAL, (_, url) => shell.openExternal(url));
 
-
 ipcMain.handle(IpcEvents.GET_QUICK_CSS, () => readCss());
 
 ipcMain.handle(IpcEvents.GET_SETTINGS_DIR, () => SETTINGS_DIR);
 ipcMain.on(IpcEvents.GET_SETTINGS, (e) => e.returnValue = readSettings());
 
+ipcMain.handle(IpcEvents.GET_SWC_WASM, () => readFile(join(__dirname, "swc.wasm")));
 let settingsWriteQueue = Promise.resolve();
 ipcMain.handle(IpcEvents.SET_SETTINGS, (_, s) => {
     settingsWriteQueue = settingsWriteQueue.then(() => writeFile(SETTINGS_FILE, s));
