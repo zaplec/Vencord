@@ -17,7 +17,12 @@
         // https://esbuild.github.io/api/#jsx-factory
         "jsxFactory": "Vencord.Webpack.Common.React.createElement",
         "jsxFragmentFactory": "Vencord.Webpack.Common.React.Fragment",
-        "jsx": "react"
+        "jsx": "react",
+        "baseUrl": ".",
+        "paths": {
+            "@components": ["src/webpack/components/index.ts"],
+            "@components/*": ["src/webpack/components/*"]
+        }
     },
     "include": ["src/**/*"]
 }

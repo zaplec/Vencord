@@ -16,6 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { FormDivider, FormSection, FormText, FormTitle } from "@components/Forms";
 import Plugins from "~plugins";
 
 import { showNotice } from "../../api/Notices";
@@ -26,7 +27,7 @@ import { ChangeList } from "../../utils/ChangeList";
 import { classes, lazyWebpack } from "../../utils/misc";
 import { Plugin } from "../../utils/types";
 import { filters } from "../../webpack";
-import { Alerts, Button, Forms, Margins, Parser, React, Switch, Text, TextInput, Toasts, Tooltip } from "../../webpack/common";
+import { Alerts, Button, Margins, Parser, React, Switch, Text, TextInput, Toasts, Tooltip } from "../../webpack/common";
 import ErrorBoundary from "../ErrorBoundary";
 import { ErrorCard } from "../ErrorCard";
 import { Flex } from "../Flex";
@@ -235,10 +236,10 @@ export default ErrorBoundary.wrap(function Settings() {
     };
 
     return (
-        <Forms.FormSection tag="h1" title="Vencord">
-            <Forms.FormTitle tag="h5" className={classes(Margins.marginTop20, Margins.marginBottom8)}>
+        <FormSection tag="h1" title="Vencord">
+            <FormTitle tag="h5" className={classes(Margins.marginTop20, Margins.marginBottom8)}>
                 Plugins
-            </Forms.FormTitle>
+            </FormTitle>
 
             <ReloadRequiredCard plugins={[...changes.getChanges()]} style={{ marginBottom: 16 }} />
 
@@ -275,10 +276,10 @@ export default ErrorBoundary.wrap(function Settings() {
                     : <Text variant="text-md/normal">No plugins meet search criteria.</Text>
                 }
             </div>
-            <Forms.FormDivider />
-            <Forms.FormTitle tag="h5" className={classes(Margins.marginTop20, Margins.marginBottom8)}>
+            <FormDivider />
+            <FormTitle tag="h5" className={classes(Margins.marginTop20, Margins.marginBottom8)}>
                 Required Plugins
-            </Forms.FormTitle>
+            </FormTitle>
             <div style={styles.PluginsGrid}>
                 {sortedPlugins?.length ? sortedPlugins
                     .filter(a => a.required || dependencyCheck(a.name, depMap).length && pluginFilter(a))
@@ -303,15 +304,15 @@ export default ErrorBoundary.wrap(function Settings() {
                     : <Text variant="text-md/normal">No plugins meet search criteria.</Text>
                 }
             </div>
-        </Forms.FormSection >
+        </FormSection>
     );
 });
 
 function makeDependencyList(deps: string[]) {
     return (
         <React.Fragment>
-            <Forms.FormText>This plugin is required by:</Forms.FormText>
-            {deps.map((dep: string) => <Forms.FormText style={{ margin: "0 auto" }}>{dep}</Forms.FormText>)}
+            <FormText>This plugin is required by:</FormText>
+            {deps.map((dep: string) => <FormText style={{ margin: "0 auto" }}>{dep}</FormText>)}
         </React.Fragment>
     );
 }

@@ -16,9 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { PluginOptionSelect } from "../../../utils/types";
-import { Forms, React, Select } from "../../../webpack/common";
+import { FormSection, FormText, FormTitle } from "@components/Forms";
+import Select from "@components/Select";
+
 import { ISettingElementProps } from ".";
+import { PluginOptionSelect } from "../../../utils/types";
+import { React } from "../../../webpack/common";
 
 export function SettingSelectComponent({ option, pluginSettings, onChange, onError, id }: ISettingElementProps<PluginOptionSelect>) {
     const def = pluginSettings[id] ?? option.options?.find(o => o.default)?.value;
@@ -41,8 +44,8 @@ export function SettingSelectComponent({ option, pluginSettings, onChange, onErr
     }
 
     return (
-        <Forms.FormSection>
-            <Forms.FormTitle>{option.description}</Forms.FormTitle>
+        <FormSection>
+            <FormTitle>{option.description}</FormTitle>
             <Select
                 isDisabled={option.disabled?.() ?? false}
                 options={option.options}
@@ -54,7 +57,7 @@ export function SettingSelectComponent({ option, pluginSettings, onChange, onErr
                 serialize={v => String(v)}
                 {...option.componentProps}
             />
-            {error && <Forms.FormText style={{ color: "var(--text-danger)" }}>{error}</Forms.FormText>}
-        </Forms.FormSection>
+            {error && <FormText style={{ color: "var(--text-danger)" }}>{error}</FormText>}
+        </FormSection>
     );
 }

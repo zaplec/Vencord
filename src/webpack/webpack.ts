@@ -180,6 +180,12 @@ export function waitFor(filter: string | string[] | FilterFn, callback: Callback
     subscriptions.set(filter, callback);
 }
 
+export function proxyWaitFor(filter: string | string[] | FilterFn, mapper = m => m) {
+    let v;
+    waitFor(filter, m => v = mapper(m));
+    return proxyLazy(() => v);
+}
+
 export function addListener(callback: CallbackFn) {
     listeners.add(callback);
 }

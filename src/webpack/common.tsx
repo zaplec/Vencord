@@ -33,6 +33,7 @@ export let UserStore: Stores.UserStore;
 export let SelectedChannelStore: Stores.SelectedChannelStore;
 export let ChannelStore: Stores.ChannelStore;
 
+/** @deprecated import from "@components/Forms" instead */
 export const Forms = {} as {
     FormTitle: Components.FormTitle;
     FormSection: any;
@@ -47,6 +48,7 @@ export let Router: any;
 export let TextInput: any;
 export let Text: (props: TextProps) => JSX.Element;
 
+/** @deprecated import from "@components/Select" instead */
 export const Select = lazyWebpack(filters.byCode("optionClassName", "popoutPosition", "autoFocus", "maxVisibleItems"));
 export const Slider = lazyWebpack(filters.byCode("closestMarkerIndex", "stickToMarkers"));
 
@@ -78,6 +80,7 @@ const ToastPosition = {
     BOTTOM: 1
 };
 
+/** @deprecated import from "@components/Toasts" instead */
 export const Toasts = {
     Type: ToastType,
     Position: ToastPosition,
