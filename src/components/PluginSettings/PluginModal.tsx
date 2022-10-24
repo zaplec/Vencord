@@ -16,6 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Forms } from "@components";
 import { User } from "discord-types/general";
 import { Constructor } from "type-fest";
 
@@ -25,7 +26,7 @@ import { lazyWebpack, proxyLazy } from "../../utils";
 import { ModalContent, ModalFooter, ModalHeader, ModalProps, ModalRoot, ModalSize } from "../../utils/modal";
 import { OptionType, Plugin } from "../../utils/types";
 import { filters } from "../../webpack";
-import { Button, FluxDispatcher, Forms, React, Text, Tooltip, UserStore, UserUtils } from "../../webpack/common";
+import { Button, FluxDispatcher, React, Text, Tooltip, UserStore, UserUtils } from "../../webpack/common";
 import ErrorBoundary from "../ErrorBoundary";
 import { Flex } from "../Flex";
 import {
@@ -33,7 +34,7 @@ import {
     SettingInputComponent,
     SettingNumericComponent,
     SettingSelectComponent,
-    SettingSliderComponent,
+    SettingSliderComponent
 } from "./components";
 
 const UserSummaryItem = lazyWebpack(filters.byCode("defaultRenderUser", "showDefaultAvatarsForNullUsers"));

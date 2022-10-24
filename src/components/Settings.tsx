@@ -16,11 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { FormDivider, FormSection, FormText, FormTitle } from "@components/Forms";
+
 import { useSettings } from "../api/settings";
 import { ChangeList } from "../utils/ChangeList";
 import IpcEvents from "../utils/IpcEvents";
 import { useAwaiter } from "../utils/misc";
-import { Alerts, Button, Forms, Margins, Parser, React, Switch } from "../webpack/common";
+import { Alerts, Button, Margins, Parser, React, Switch } from "../webpack/common";
 import ErrorBoundary from "./ErrorBoundary";
 import { Flex } from "./Flex";
 import { launchMonacoEditor } from "./Monaco";
@@ -51,14 +53,14 @@ export default ErrorBoundary.wrap(function Settings() {
     }, []);
 
     return (
-        <Forms.FormSection tag="h1" title="Vencord">
-            <Forms.FormTitle tag="h5">
+        <FormSection tag="h1" title="Vencord">
+            <FormTitle tag="h5">
                 Settings
-            </Forms.FormTitle>
+            </FormTitle>
 
-            <Forms.FormText>
+            <FormText>
                 Settings Directory: <code style={{ userSelect: "text", cursor: "text" }}>{settingsDir}</code>
-            </Forms.FormText>
+            </FormText>
 
             {!IS_WEB && <Flex className={Margins.marginBottom20} style={{ marginTop: 8 }}>
                 <Button
@@ -92,7 +94,7 @@ export default ErrorBoundary.wrap(function Settings() {
                 Open QuickCSS File
             </Button>}
 
-            <Forms.FormDivider />
+            <FormDivider />
             <Switch
                 value={settings.useQuickCss}
                 onChange={(v: boolean) => settings.useQuickCss = v}
@@ -114,6 +116,6 @@ export default ErrorBoundary.wrap(function Settings() {
             >
                 Get notified about new Updates
             </Switch>}
-        </Forms.FormSection >
+        </FormSection>
     );
 });

@@ -19,9 +19,9 @@
 import { FormSection, FormText, FormTitle } from "@components/Forms";
 import Select from "@components/Select";
 
-import { ISettingElementProps } from ".";
 import { PluginOptionSelect } from "../../../utils/types";
 import { React } from "../../../webpack/common";
+import { ISettingElementProps } from ".";
 
 export function SettingSelectComponent({ option, pluginSettings, onChange, onError, id }: ISettingElementProps<PluginOptionSelect>) {
     const def = pluginSettings[id] ?? option.options?.find(o => o.default)?.value;

@@ -16,8 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Forms } from "@components";
+
 import { PluginOptionBoolean } from "../../../utils/types";
-import { Forms, React, Select } from "../../../webpack/common";
+import { React, Select } from "../../../webpack/common";
 import { ISettingElementProps } from ".";
 
 export function SettingBooleanComponent({ option, pluginSettings, id, onChange, onError }: ISettingElementProps<PluginOptionBoolean>) {

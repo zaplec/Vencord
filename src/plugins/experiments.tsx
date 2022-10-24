@@ -16,12 +16,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+import { Forms } from "@components";
+
 import { lazyWebpack } from "../utils";
 import { Devs } from "../utils/constants";
 import definePlugin, { OptionType } from "../utils/types";
 import { Settings } from "../Vencord";
 import { filters } from "../webpack";
-import { Forms, React } from "../webpack/common";
+import { React } from "../webpack/common";
 
 const KbdStyles = lazyWebpack(filters.byProps(["key", "removeBuildOverride"]));
 
@@ -76,7 +78,7 @@ export default definePlugin({
         return (
             <React.Fragment>
                 <Forms.FormTitle tag="h3">More Information</Forms.FormTitle>
-                <Forms.FormText variant="text-md/normal">
+                <Forms.FormText>
                     You can enable client DevTools{" "}
                     <kbd className={KbdStyles.key}>{modKey}</kbd> +{" "}
                     <kbd className={KbdStyles.key}>{altKey}</kbd> +{" "}

@@ -16,7 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { Forms, React } from "../../../webpack/common";
+import { Forms } from "@components";
+
+import { React } from "../../../webpack/common";
 
 export default function PronounsAboutComponent() {
     return (
